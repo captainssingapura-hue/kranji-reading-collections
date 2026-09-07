@@ -1,0 +1,20 @@
+# Line endings are content in this repository.
+#
+# Every article is a text file whose bytes are the thing being published, and
+# Git for Windows ships core.autocrlf=true in its system config. Without this
+# file a fresh checkout on Windows rewrites all 615 of them as CRLF while
+# `git status` stays clean, because git converts back on read - which is what
+# makes it expensive to find rather than merely annoying.
+#
+# The reader tolerates it (ArticleParser normalises \r\n before it does
+# anything else), so nothing would break loudly. It would simply mean the file
+# an author edits and the file the build reads are different bytes, on some
+# machines and not others - and the next thing that hashes an article would
+# fail for no visible reason. The reader's own repository learned this from
+# its seed digests; there is no reason to learn it twice.
+#
+# text=auto lets git normalise to LF on commit; eol=lf makes every checkout
+# LF whatever the platform would otherwise do. Nothing tracked here is
+# binary, so one rule covers all of it.
+
+* text=auto eol=lf
