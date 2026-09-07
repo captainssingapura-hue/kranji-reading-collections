@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+        <artifactId>kranji-reading-collections</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>kranji-reading-collections-dist</artifactId>
+
+    <description>
+        The library as one jar, to sit beside the reader's.
+
+        ONLY THE ROOT IS DEPENDED ON. kranji-library-all pulls the six groups
+        in, so this module names one artifact and gains the rest. A build that
+        wants a different arrangement writes its own root and points this at
+        that instead.
+
+        NOT A FAT JAR. kranji-reading-model is deliberately excluded: the
+        reader already has it, and a second copy on the classpath is two
+        versions of the vocabulary both claiming to be right - the kind of
+        fault that shows up as an article resolving on one machine and not on
+        another. This jar carries the collections and their catalogues, and
+        nothing it does not own.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-library-all</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <finalName>kranji-reading-collections</finalName>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <transformers>
+                                <!--
+                                    The reader finds its library with
+                                    ServiceLoader, and the declaration lives at
+                                    META-INF/services/kranji.reading.library.ArticleLibrary.
+                                    Only roots declare one, so today there is a
+                                    single file and nothing to merge - but a
+                                    plain merge keeps whichever copy it unpacks
+                                    last, and the day a second root is added
+                                    this jar would ship with one of them
+                                    silently missing. The transformer costs
+                                    nothing and removes that day.
+                                -->
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                            <artifactSet>
+                                <excludes>
+                                    <!-- The reader's, not ours. See the note above. -->
+                                    <exclude>io.github.captainssingapura-hue.yong.kranji:kranji-reading-model</exclude>
+                                    <exclude>io.github.captainssingapura-hue.lang.ontology:*</exclude>
+                                </excludes>
+                            </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>module-info.class</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
