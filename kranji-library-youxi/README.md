@@ -31,7 +31,7 @@ library — the half that built looks finished.
 ## What is here
 
 ```
-src/main/kmd/kranji/articles/youxi/*.kmd
+src/main/kmd/*.kmd
 ```
 
 `src/main/kmd` rather than `src/main/resources` on purpose: these files are not
