@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+        <artifactId>kranji-reading-collections</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>kranji-library-youxi</artifactId>
+
+    <!--
+      No dependencies yet, and no Java.
+
+      Every other module here ships .txt articles beside a hand-written
+      catalogue. This one holds .kmd sources under src/main/kmd, which are
+      not articles yet: a build step turns them into one JSON resource per
+      section beside a generated catalogue, and that step lives in
+      kranji-studio rather than here. Until it is wired up, and until the
+      reader can serve a generated section, a catalogue in this module would
+      name articles nothing can read.
+
+      See README.md.
+    -->
+</project>
