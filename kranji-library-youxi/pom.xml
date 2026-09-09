@@ -11,17 +11,35 @@
 
     <artifactId>kranji-library-youxi</artifactId>
 
-    <!--
-      No dependencies yet, and no Java.
+    <description>
+        电子游戏 — games as a subject a child already knows.
 
-      Every other module here ships .txt articles beside a hand-written
-      catalogue. This one holds .kmd sources under src/main/kmd, which are
-      not articles yet: a build step turns them into one JSON resource per
-      section beside a generated catalogue, and that step lives in
-      kranji-studio rather than here. Until it is wired up, and until the
-      reader can serve a generated section, a catalogue in this module would
-      name articles nothing can read.
+        ITS OWN MODULE for the reason the others are: a group is the unit of
+        authorship. This one is authored against things that keep changing —
+        a map is reworked, a mode leaves the pool — so it is the jar that
+        goes stale, and it should be able to go stale without 唐诗 moving.
 
-      See README.md.
-    -->
+        It is also the group with the strongest reason to exist. A child who
+        will not read a fable will read about the map they played last night,
+        and the characters are the same characters.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-reading-model</artifactId>
+            <version>${kranji.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-reading-testkit</artifactId>
+            <version>${kranji.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,62 +1,44 @@
-# 游戏
+# 电子游戏
 
-Articles about games. The first of them is a map guide for Counter-Strike's
-`Italy` — the document the whole `.kmd` design was written against, now written
-*in* it.
+Articles about video games. The first of them is a guide to Counter-Strike's
+`Italy` map, in `src/main/resources/kranji/articles/youxi/yi-da-li.ktxt`.
 
-## Why this module looks unfinished
+## What happened to the `.kmd` file
 
-Because it is, and deliberately so. Every other module here ships `.txt`
-articles beside a hand-written catalogue of `ArticleRef`s. This one ships
-nothing yet.
+This module used to hold one `.kmd` source and no articles — a Markdown subset
+with headings, sections and `‹…›` around every non-Chinese word, waiting for a
+build step that would turn it into one JSON resource per section.
 
-The reason is that a `.kmd` document is a **source**, not an article. A build
-step reads it and emits one JSON resource per section beside a generated
-catalogue — which is what keeps the rule the library depends on:
+That step is not being built. The format merged back into the one the other
+groups use: an article is lines of Chinese, a blank line ends a block, and
+nothing else is markup. The `.kmd` document is in the history at `86cee31` if
+its detail is ever wanted; what is here now is the same guide with the
+essential half kept and the rest cut.
 
-> Metadata is Java; the body is a resource. Listing therefore never parses.
+The cut was the point. The `.kmd` version ran to eight sections and about
+2,500 characters — a reference document. This one is 444, which is what a child
+reads in a sitting.
 
-Two things have to happen before that step can run here:
+## The extension
 
-1. **The generator lives in `kranji-studio`**, in the reader's repository, not
-   in this one. Nothing in this build can invoke it today.
-2. **The reader cannot serve a generated section.** `ArticleRef.resource` would
-   name a `.json`, and the reading path still expects the `.txt` lines it scans
-   in the browser.
+`.ktxt` — the same format, under the name the merged one is taking. Nothing in
+the reading path gates on the extension, so this can be first without the older
+groups having to be renamed.
 
-So this module holds the source and stops there. A catalogue committed now
-would name articles nothing can open, and a half-built library is worse than no
-library — the half that built looks finished.
+## Writing more
 
-## What is here
+One shelf per game, and articles in the order they were written; see
+`YouXiCollections`. Two things to know before adding one:
 
-```
-src/main/kmd/*.kmd
-```
-
-`src/main/kmd` rather than `src/main/resources` on purpose: these files are not
-the artifact. Putting them under `resources` would ship them in the jar, where
-nothing would ever read them.
-
-## Working on them
-
-Point the studio's article workspace at this repository — add it as a root in
-the **Roots** pane — and the **Navigator** will find every `.kmd` under it. The
-**Drafts** pane shows what the subset makes of one, and every finding it has.
-
-The format is specified in *The Markdown Kranji Reads*, in `kranji-studio`.
-Two things about it are worth knowing before editing these files:
-
-- **Anything not Chinese and not a punctuation mark must be wrapped** in
-  `‹…›` — `‹Italy›`, `‹CS2›`, `‹1999›`. This is an error, not a warning: a
-  square holds one character, and only the author can say that eight letters
-  are one word.
-- **Emphasis cannot span a run.** `**匪徒方（‹T›）负责看守人质**` leaves an
-  unpaired `*` on each side of the run and is warned about; write
-  `**匪徒方**（‹T›）**负责看守人质**` instead.
+- **Every character must be in the corpus.** The parser drops one it cannot
+  read and the article then fails to serve. `ArticlesTest` catches it in this
+  module, in the second this module takes.
+- **Non-Chinese runs are ordinary text** — `CS2` needs no wrapping. Each run
+  becomes one square, so keep them short: a five-letter word in a square is
+  legible, a sentence of them is not.
 
 ## The name
 
-游戏 here means video games. It is not the 语言游戏 shelf in
+电子游戏 means video games. It is not the 语言游戏 shelf in
 `kranji-library-all`, which is 笑话 and 口语 — things played with language
 rather than things played.
