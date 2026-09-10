@@ -62,7 +62,7 @@ public final class KouYuCollections {
             k("shuoming-b-p", "绕口令 · b p f"),
             k("shuoming-an-ang", "绕口令 · 前鼻音和后鼻音"),
             k("shuoming-j-q-x", "绕口令 · j q x"),
-            k("shuoming-changju", "绕口令 · 长句"),
+            k("shuoming-changju", "绕口令 · 长{cháng}句"),
             k("shuoming-shunkouliu", "顺口溜"),
             k("shuoming-shuzi", "顺口溜 · 数字"),
             k("shuoming-jieqi", "顺口溜 · 节气与月份"),
@@ -133,8 +133,8 @@ public final class KouYuCollections {
             k("hua-er-kai", "花儿开"));
 
     public static final ArticleCollection CHANG_JU = bundle("changju",
-            "绕口令 · 长句", "Longer ones, for when the short shelves stop being hard.",
-            k("hong-feng-huang", "红凤凰"), k("bian-dan-ban-deng", "扁担长板凳宽"),
+            "绕口令 · 长{cháng}句", "Longer ones, for when the short shelves stop being hard.",
+            k("hong-feng-huang", "红凤凰"), k("bian-dan-ban-deng", "扁担长{cháng}板凳宽"),
             k("da-ba-ba", "八十八"), k("hua-hu", "画壶"),
             k("qi-jia-qi", "七加七"), k("shan-qian-si-shi", "山前山后"),
             k("bu-bu-bu", "补布裤"), k("zhi-zhu", "蜘蛛织网"));

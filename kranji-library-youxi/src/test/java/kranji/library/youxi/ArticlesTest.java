@@ -20,10 +20,11 @@ class ArticlesTest extends LibraryArticlesTestBase {
     protected List<LibraryTree> trees() { return List.of(YouXiLibrary.TREE); }
 
     /**
-     * Five map guides. The floor is what stops a broken classpath reading as
-     * success — the base class insists only on more than nothing, and more
-     * than nothing is what an empty jar looks like.
+     * Five map guides and nine weapon entries. The floor is what stops a
+     * broken classpath reading as success — the base class insists only on
+     * more than nothing, and more than nothing is what an empty jar looks
+     * like.
      */
     @Override
-    protected int fewestArticlesExpected() { return 5; }
+    protected int fewestArticlesExpected() { return 14; }
 }
