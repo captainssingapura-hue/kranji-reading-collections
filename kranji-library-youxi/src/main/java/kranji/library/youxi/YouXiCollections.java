@@ -56,7 +56,11 @@ public final class YouXiCollections {
 
     public static final ArticleCollection CS2 = bundle("cs2",
             "反恐精英2", "地图、模式和打法，一次讲一张图。",
-            a("yi-da-li", "意大利"));
+            a("yi-da-li", "意大利"),
+            a("zhi-re-sha-cheng", "炙热沙城"),
+            a("huang-mo-mi-cheng", "荒漠迷城"),
+            a("lian-yu-xiao-zhen", "炼狱小镇"),
+            a("he-zi-wei-ji", "核子危机"));
 
     public static List<ArticleCollection> all() {
         return List.of(CS2);

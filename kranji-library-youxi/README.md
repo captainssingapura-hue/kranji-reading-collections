@@ -1,7 +1,17 @@
 # 电子游戏
 
-Articles about video games. The first of them is a guide to Counter-Strike's
-`Italy` map, in `src/main/resources/kranji/articles/youxi/yi-da-li.ktxt`.
+Five map guides for Counter-Strike 2, in
+`src/main/resources/kranji/articles/youxi/`: 意大利, 炙热沙城, 荒漠迷城,
+炼狱小镇 and 核子危机 — the hostage map the group started with, and the four
+bomb-defusal maps a player meets first.
+
+## One map, one idea
+
+Each is 300–450 characters and says one thing the map is about, because five
+guides that all list rooms would be one guide printed five times. Italy is
+about the walk back; 炙热沙城 about the middle; 荒漠迷城 about smoke; 炼狱小镇
+about how little space there is; 核子危机 about the two floors. The rooms are
+there to make the idea land, not the other way round.
 
 ## What happened to the `.kmd` file
 
@@ -16,14 +26,14 @@ its detail is ever wanted; what is here now is the same guide with the
 essential half kept and the rest cut.
 
 The cut was the point. The `.kmd` version ran to eight sections and about
-2,500 characters — a reference document. This one is 444, which is what a child
+2,500 characters — a reference document. 意大利 is 444, which is what a child
 reads in a sitting.
 
 ## The extension
 
 `.ktxt` — the same format, under the name the merged one is taking. Nothing in
-the reading path gates on the extension, so this can be first without the older
-groups having to be renamed.
+the reading path gates on the extension, so these can be first without the
+older groups having to be renamed.
 
 ## Writing more
 
