@@ -91,6 +91,7 @@
         <module>kranji-library-xiaohua</module>
         <module>kranji-library-kouyu</module>
         <module>kranji-library-zhinan</module>
+        <module>kranji-library-youxi</module>
         <module>kranji-library-all</module>
         <module>kranji-reading-collections-dist</module>
     </modules>

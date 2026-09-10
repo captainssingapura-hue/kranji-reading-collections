@@ -54,7 +54,7 @@ public final class KePuCollections {
             a("shuoming-shou", "兽"),
             a("shuoming-zhiwu", "植物"),
             a("shuoming-tianwen", "天文"),
-            a("shuoming-dili", "地理"),
+            a("shuoming-dili", "地{dì}理"),
             a("shuoming-tianqi", "天气"),
             a("shuoming-renti", "人体"),
             a("shuoming-wuzhi", "物质世界"),
@@ -90,13 +90,13 @@ public final class KePuCollections {
     public static final ArticleCollection TIAN_WEN = bundle("tianwen",
             "天文", "The sky, which is the first thing anybody wonders about.",
             a("yue-liang", "月亮"), a("tai-yang", "太阳"), a("xing-xing", "星星"),
-            a("di-qiu", "地球"), a("liu-xing", "流星"), a("cai-hong", "彩虹"),
+            a("di-qiu", "地{dì}球"), a("liu-xing", "流星"), a("cai-hong", "彩虹"),
             a("ri-shi", "日食"), a("si-ji-cheng-yin", "四季是怎么来的"));
 
     public static final ArticleCollection DI_LI = bundle("dili",
-            "地理", "How the ground got the shape it has.",
+            "地{dì}理", "How the ground got the shape it has.",
             a("huo-shan", "火山"), a("he-liu", "河流"), a("sha-mo", "沙漠"),
-            a("di-zhen", "地震"), a("hai-yang", "海洋"), a("shan", "山是怎么来的"),
+            a("di-zhen", "地{dì}震"), a("hai-yang", "海洋"), a("shan", "山是怎么来的"),
             a("bing-chuan", "冰川"));
 
     public static final ArticleCollection REN_TI = bundle("renti",

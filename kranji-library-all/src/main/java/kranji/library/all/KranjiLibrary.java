@@ -5,12 +5,13 @@ import kranji.library.kepu.KePuLibrary;
 import kranji.library.kouyu.KouYuLibrary;
 import kranji.library.shici.ShiCiLibrary;
 import kranji.library.xiaohua.XiaoHuaLibrary;
+import kranji.library.youxi.YouXiLibrary;
 import kranji.library.zhinan.ZhiNanLibrary;
 import kranji.reading.library.ArticleLibrary;
 import kranji.reading.library.LibraryTree;
 
 /**
- * The root: six groups, grafted under one arrangement.
+ * The root: seven groups, grafted under one arrangement.
  *
  * <h2>What this class decides, and what it does not</h2>
  *
@@ -18,7 +19,7 @@ import kranji.reading.library.LibraryTree;
  * form is a judgement about 唐诗 and lives beside it, in
  * {@link ShiCiLibrary}. This file decides only what sits beside what — which
  * is the judgement a reader meets first and the one most likely to be made
- * differently by somebody else. A school that wants these same five jars under
+ * differently by somebody else. A school that wants these same jars under
  * a different arrangement writes its own root and depends on the same five
  * artifacts; nothing here is in its way.</p>
  *
@@ -40,6 +41,13 @@ import kranji.reading.library.LibraryTree;
  * exactly one thing, and a level with nothing to distinguish is a level a
  * reader has to click through for no reason. When a second factual group
  * arrives, that is when the heading is worth adding.</p>
+ *
+ * <p>电子游戏 comes last and sits next to 语言游戏 on purpose. The two headings
+ * share a word and mean different things — one is played with language, the
+ * other is played — and side by side the qualifier does that work at a glance,
+ * where separated they would read as the same shelf twice. It is last because
+ * it is newest, not because it is least: it is the group most likely to be the
+ * reason a particular child opens the app at all.</p>
  */
 public final class KranjiLibrary implements ArticleLibrary {
 
@@ -53,7 +61,8 @@ public final class KranjiLibrary implements ArticleLibrary {
             KePuLibrary.TREE,
             LibraryTree.of("语言游戏",
                     XiaoHuaLibrary.TREE,
-                    KouYuLibrary.TREE));
+                    KouYuLibrary.TREE),
+            YouXiLibrary.TREE);
 
     /** Public because the loader builds it; {@link #INSTANCE} is for direct use. */
     public KranjiLibrary() {}

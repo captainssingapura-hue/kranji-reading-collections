@@ -101,7 +101,7 @@ class RootLibraryTest {
     void theArrangementIsTheOneWritten() {
         assertEquals("读物", ROOT.title());
         var top = ((LibraryTree.Branch) ROOT).children().stream().map(LibraryTree::title).toList();
-        assertEquals(List.of("使用指南", "文学", "科普读物", "语言游戏"), top);
+        assertEquals(List.of("使用指南", "文学", "科普读物", "语言游戏", "电子游戏"), top);
         assertFalse(ROOT.collections().isEmpty());
     }
 }
