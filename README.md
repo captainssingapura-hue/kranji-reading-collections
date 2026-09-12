@@ -501,12 +501,19 @@ The bench. From this repository:
 mvn -pl kranji-library-workbench exec:java
 ```
 
-then open **http://localhost:8104** and pick *Article Browser*. It is the
+then open **http://localhost:8104**. Two workbenches: *Article Browser* is the
 reader's own Library and Reader widgets - the same classes, on the same
 routes - with this library on the classpath, so what you see is what a child
 with this library sees. The first lines it prints name every library it found
 and which one it mounted; if that says `demo`, the build did not put this one
 on the classpath and nothing you check is about your articles.
+
+*Coverage* is how much of this library the reader's meanings explain: three
+grids on one bus - shelves worst-first, the articles of the shelf you pick,
+the pairs the article you pick is missing - with the whole-library figure
+above the first. It is the same measurement `kranji-library-all`'s
+`GlossCoverageTest` writes to `target/gloss-coverage.txt` and holds a floor
+on, so the number the build fails on is the number the bench shows.
 
 The bench's code is not here - it lives in `kranji-reading-workbench`, in the
 reader's repository, beside the reader it borrows from. This module is the
