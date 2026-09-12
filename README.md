@@ -24,14 +24,17 @@ kranji-reading-collections/
   kranji-library-xiaohua/   笑话     — jokes
   kranji-library-kouyu/     口语     — tongue-twisters, spoken drills
   kranji-library-zhinan/    使用指南 — the reader's own instructions
+  kranji-library-youxi/     电子游戏 — video games
   kranji-library-all/       the root: arrangement only, no text
-  kranji-reading-collections-dist/  the six groups as one jar, to sit
+  kranji-reading-collections-dist/  the groups as one jar, to sit
                                     beside the reader's
+  kranji-library-workbench/ the bench, run against this library - see below
 ```
 
 The reader is not here. It is a separate repository, and it reaches this
-build as three artifacts resolved from `~/.m2` — `kranji-reading-model`,
-`kranji-reading-content`, `kranji-reading-testkit`. If something you need is
+build as artifacts resolved from `~/.m2` — `kranji-reading-model`,
+`kranji-reading-content`, `kranji-reading-testkit`, and for the bench,
+`kranji-reading-workbench`. If something you need is
 missing from them, that is a change to the reader: say so and stop, rather
 than working round it here.
 
@@ -492,16 +495,30 @@ mvn -o install
 
 ## 10. Seeing it
 
-`.claude/launch.json` has a `reading` configuration on **port 8102**. The
-Library pane shows the tree; the Reader pane shows an article. Useful for
-checking that a paragraph came out as prose rather than as verse, and that a
-title reads the way you meant it to.
+The bench. From this repository:
+
+```bash
+mvn -pl kranji-library-workbench exec:java
+```
+
+then open **http://localhost:8104** and pick *Article Browser*. It is the
+reader's own Library and Reader widgets - the same classes, on the same
+routes - with this library on the classpath, so what you see is what a child
+with this library sees. The first lines it prints name every library it found
+and which one it mounted; if that says `demo`, the build did not put this one
+on the classpath and nothing you check is about your articles.
+
+The bench's code is not here - it lives in `kranji-reading-workbench`, in the
+reader's repository, beside the reader it borrows from. This module is the
+classpath: the bench, this root, and the reader's meanings. When the bench
+gains a tool, it arrives here on the next rebuild without a change to this
+repository.
 
 Two endpoints answer without a browser:
 
 ```bash
-curl -s http://localhost:8102/article-tree | head -c 400
-curl -s "http://localhost:8102/article?id=<collection>:<local>"
+curl -s http://localhost:8104/article-tree | head -c 400
+curl -s "http://localhost:8104/article?id=<collection>:<local>"
 ```
 
 The second is the quickest way to see block kinds. Note that the server
