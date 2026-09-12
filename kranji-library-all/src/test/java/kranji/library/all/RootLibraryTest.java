@@ -89,12 +89,21 @@ class RootLibraryTest {
 
     @Test
     void theRootIsWhatDiscoveryMounts() {
-        // This module's own classpath holds one root, so discovery has nothing
-        // to weigh. The interesting case - this root beside the demo one - is
-        // where both jars meet, in kranji-reading-app.
+        // Two roots on this classpath, not one. The demo set rides in with the
+        // testkit - it lives in kranji-reading-content, which the coverage
+        // check needs - so this module now holds exactly the case that used
+        // to be described as living elsewhere: this root beside the demo one.
+        // Which makes it the place to assert the rule that decides between
+        // them. Both are found; the one that mounts is this one, because it
+        // declares precedence 0 against the demo set's 10.
         List<ArticleLibrary> found = Libraries.discovered();
-        assertEquals(List.of("kranji"), found.stream().map(ArticleLibrary::name).toList());
-        assertSame(ROOT, Libraries.mounted().tree());
+        List<String> names = found.stream().map(ArticleLibrary::name).toList();
+        assertTrue(names.contains("kranji"), "this root was not discovered: " + names);
+        assertTrue(names.contains("demo"),
+                "the demo set should be on this classpath via the testkit; "
+              + "if it has gone, the precedence rule below is no longer being tested: " + names);
+        assertSame(ROOT, Libraries.mounted().tree(),
+                "the published root must win over the demo set");
     }
 
     @Test

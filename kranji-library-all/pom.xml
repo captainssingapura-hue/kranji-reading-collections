@@ -73,5 +73,39 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--
+            The check that measures this library against the meanings.
+
+            The testkit brings the measurement; the three gloss jars bring
+            what it is measured against, and they are named here rather than
+            pulled in by the testkit because what counts as "the meanings" is
+            this deployment's decision. These are the three kranji-dist ships,
+            so the number the build reports is the number a reader gets.
+        -->
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-reading-testkit</artifactId>
+            <version>${kranji.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-gloss</artifactId>
+            <version>${kranji.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-gloss-seed</artifactId>
+            <version>${kranji.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-gloss-layered</artifactId>
+            <version>${kranji.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>
