@@ -25,6 +25,7 @@ kranji-reading-collections/
   kranji-library-kouyu/     口语     — tongue-twisters, spoken drills
   kranji-library-zhinan/    使用指南 — the reader's own instructions
   kranji-library-youxi/     电子游戏 — video games
+  kranji-library-zuowen/    作文     — model compositions, one series per examination
   kranji-library-all/       the root: arrangement only, no text
   kranji-reading-collections-dist/  the groups as one jar, to sit
                                     beside the reader's
@@ -222,22 +223,18 @@ CJK in `…Collections.java` is fine — these are ordinary server classes, not
 served JS modules, and the no-inline-glyph conformance rule does not reach
 them. (It does reach anything under `homing/js/`, which you are not editing.)
 
-> **A title cannot carry a reading override, and nothing warns you.**
-> `ArticleParser` never parses the title — it takes it as a string and hands
-> it through, and the readings are worked out in the browser from the raw
-> text, where `{…}` means nothing and would be shown as literal braces. So
-> every Han character in a title takes the corpus principal, whatever your
-> title means.
+> **A title takes the corpus principal unless you say otherwise — and nothing
+> warns you.** A title is not parsed the way a body is: no warning report lists
+> its guessed readings. So 音乐课 reads 乐 as `lè`, 请假条 reads 假 as `jiǎ`,
+> 睡觉 reads 觉 as `jué`, and 地球 reads 地 as `de` — the example §4 opens
+> with — until you correct it.
 >
-> **Check your title against §4 before you choose it.** 音乐课 reads 乐 as
-> `lè`; 请假条 reads 假 as `jiǎ`; 睡觉 reads 觉 as `jué`. None of those can be
-> fixed from here — the only move available to an author is to pick a title
-> that does not need fixing. Twenty-eight titles already in the library have
-> this fault, 地球 and 扫地 among them: 地's principal is `de`, which is the
-> example §4 opens with.
->
-> Fixing it properly means an override path for titles, which lives in
-> `kranji-reading/**`. Say so rather than reaching for it.
+> The correction is the same `{…}` the body uses, in the title literal:
+> `"地{dì}图"`, `"音乐{yuè}课"`. The tree draws the title without the braces and
+> annotates it with the reading you gave. **Check every Han character of a
+> title against §4 before you commit it**, because nothing else will. A number
+> of older titles in the library still carry the fault; fix one when you touch
+> its shelf.
 
 ### `summary` is no longer displayed
 

@@ -7,11 +7,12 @@ import kranji.library.shici.ShiCiLibrary;
 import kranji.library.xiaohua.XiaoHuaLibrary;
 import kranji.library.youxi.YouXiLibrary;
 import kranji.library.zhinan.ZhiNanLibrary;
+import kranji.library.zuowen.ZuoWenLibrary;
 import kranji.reading.library.ArticleLibrary;
 import kranji.reading.library.LibraryTree;
 
 /**
- * The root: seven groups, grafted under one arrangement.
+ * The root: eight groups, grafted under one arrangement.
  *
  * <h2>What this class decides, and what it does not</h2>
  *
@@ -48,6 +49,12 @@ import kranji.reading.library.LibraryTree;
  * where separated they would read as the same shelf twice. It is last because
  * it is newest, not because it is least: it is the group most likely to be the
  * reason a particular child opens the app at all.</p>
+ *
+ * <p>PSLE 作文系列 is a shelf after it, not a group: one series is one shelf,
+ * and {@link ZuoWenLibrary} says when it becomes a branch. It sits last because
+ * it is the one thing here read under an obligation — a child comes to it
+ * because a paper is coming, and a library that opened on that would be a
+ * classroom. It is newest as well, which is the same reason 电子游戏 gave.</p>
  */
 public final class KranjiLibrary implements ArticleLibrary {
 
@@ -62,7 +69,8 @@ public final class KranjiLibrary implements ArticleLibrary {
             LibraryTree.of("语言游戏",
                     XiaoHuaLibrary.TREE,
                     KouYuLibrary.TREE),
-            YouXiLibrary.TREE);
+            YouXiLibrary.TREE,
+            ZuoWenLibrary.TREE);
 
     /** Public because the loader builds it; {@link #INSTANCE} is for direct use. */
     public KranjiLibrary() {}

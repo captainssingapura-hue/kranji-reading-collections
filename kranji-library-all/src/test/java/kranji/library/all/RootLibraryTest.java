@@ -5,7 +5,9 @@ import kranji.library.kepu.KePuLibrary;
 import kranji.library.kouyu.KouYuLibrary;
 import kranji.library.shici.ShiCiLibrary;
 import kranji.library.xiaohua.XiaoHuaLibrary;
+import kranji.library.youxi.YouXiLibrary;
 import kranji.library.zhinan.ZhiNanLibrary;
+import kranji.library.zuowen.ZuoWenLibrary;
 import kranji.reading.library.ArticleCollection;
 import kranji.reading.library.ArticleLibrary;
 import kranji.reading.library.ArticleRef;
@@ -40,7 +42,7 @@ class RootLibraryTest {
         var grafted = ROOT.collections().stream().map(c -> c.id().toString()).toList();
         for (LibraryTree group : List.of(ShiCiLibrary.TREE, GuShiLibrary.TREE,
                 KePuLibrary.TREE, XiaoHuaLibrary.TREE, KouYuLibrary.TREE,
-                ZhiNanLibrary.TREE)) {
+                ZhiNanLibrary.TREE, YouXiLibrary.TREE, ZuoWenLibrary.TREE)) {
             for (ArticleCollection c : group.collections()) {
                 assertTrue(grafted.contains(c.id().toString()),
                         group.title() + " holds " + c.title()
@@ -110,7 +112,7 @@ class RootLibraryTest {
     void theArrangementIsTheOneWritten() {
         assertEquals("读物", ROOT.title());
         var top = ((LibraryTree.Branch) ROOT).children().stream().map(LibraryTree::title).toList();
-        assertEquals(List.of("使用指南", "文学", "科普读物", "语言游戏", "电子游戏"), top);
+        assertEquals(List.of("使用指南", "文学", "科普读物", "语言游戏", "电子游戏", "PSLE 作文系列"), top);
         assertFalse(ROOT.collections().isEmpty());
     }
 }

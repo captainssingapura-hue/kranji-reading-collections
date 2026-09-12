@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+        <artifactId>kranji-reading-collections</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>kranji-library-zuowen</artifactId>
+
+    <description>
+        作文 — model compositions, the kind a primary-school pupil is asked to
+        write and is shown before writing.
+
+        ITS OWN MODULE for the reason the others are: a group is the unit of
+        authorship. These are written to a syllabus rather than to a subject —
+        a PSLE composition has a shape, a length and a register that a fable
+        or a map guide does not — and a series that follows one examination
+        should be able to grow, or be retired, without 唐诗 moving.
+
+        It is also the group closest to what the reader is for. A child who
+        must produce this kind of writing reads it differently from a story:
+        for the turns of phrase, not only for the plot.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-reading-model</artifactId>
+            <version>${kranji.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-reading-testkit</artifactId>
+            <version>${kranji.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
