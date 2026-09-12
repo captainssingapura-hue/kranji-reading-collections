@@ -22,10 +22,10 @@ import java.util.List;
  *
  * <p>Held on reads, not on pairs or characters: what a child meets is squares,
  * and a character read forty times that has no meaning is forty taps that
- * answer nothing. It sits just under what the first measurement found, so
- * that adding an article full of unglossed characters, or losing a gloss jar
- * from the classpath, fails the build rather than a child. Raise it as the
- * meanings catch up; lower it in a diff, with a reason.</p>
+ * answer nothing. The meanings have caught up with the library, so the floor
+ * is the whole of it: adding an article with one unglossed pair, or losing a
+ * gloss jar from the classpath, fails the build rather than a child. The
+ * worklist below says which pair; lower the floor only in a diff, with a reason.</p>
  *
  * <p>The report is left at {@code target/gloss-coverage.txt}. Its last
  * section is the worklist: the missing pairs, most-read first, each saying
@@ -41,5 +41,5 @@ class GlossCoverageTest extends GlossCoverageTestBase {
     protected String library() { return KranjiLibrary.INSTANCE.name(); }
 
     @Override
-    protected double floor() { return 0.94; }
+    protected double floor() { return 1.0; }
 }
