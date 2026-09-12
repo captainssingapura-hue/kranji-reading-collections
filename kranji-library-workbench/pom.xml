@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+        <artifactId>kranji-reading-collections</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>kranji-library-workbench</artifactId>
+
+    <description>
+        The workbench, run against this library.
+
+        THE BENCH IS NOT HERE. Its code - the workspaces, the widgets, the
+        server - lives in kranji-reading-workbench, in the reader's
+        repository, beside the reader it borrows its widgets from. What this
+        module adds is the classpath: the bench, this library's root, and the
+        gloss collections the reader ships, so that a bench started here sees
+        exactly what a child with this library sees.
+
+        That is the whole reason it is a module and not a launch command. A
+        command line that names three jars is one a person gets wrong quietly,
+        and the failure - the bench opening on the 23-article demonstration set
+        and looking fine - is the one this module exists to close. Here the
+        classpath is declared, the reactor builds it, and the launcher names
+        the libraries it found before it listens.
+
+        Run it:
+
+            mvn -pl kranji-library-workbench exec:java
+
+        and open http://localhost:8104.
+    </description>
+
+    <dependencies>
+        <!-- The bench: workspaces, widgets, server. -->
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-reading-workbench</artifactId>
+            <version>${kranji.version}</version>
+        </dependency>
+
+        <!-- This library, discovered at start-up as the reader discovers it. -->
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-library-all</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--
+            The meanings, as the reader ships them. Without these the Character
+            pane says "no meanings library in this build" for every square,
+            which is true and not what an author is here to check.
+        -->
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-gloss</artifactId>
+            <version>${kranji.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-gloss-seed</artifactId>
+            <version>${kranji.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.captainssingapura-hue.yong.kranji</groupId>
+            <artifactId>kranji-gloss-layered</artifactId>
+            <version>${kranji.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>kranji.library.workbench.LibraryWorkbench</mainClass>
+                    <!-- The library and the glosses are runtime-scoped above. -->
+                    <classpathScope>runtime</classpathScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
