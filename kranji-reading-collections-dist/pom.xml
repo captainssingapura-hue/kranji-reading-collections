@@ -14,7 +14,7 @@
     <description>
         The library as one jar, to sit beside the reader's.
 
-        ONLY THE ROOT IS DEPENDED ON. kranji-library-all pulls the six groups
+        ONLY THE ROOT IS DEPENDED ON. kranji-library-all pulls the groups
         in, so this module names one artifact and gains the rest. A build that
         wants a different arrangement writes its own root and points this at
         that instead.
