@@ -57,7 +57,8 @@ public final class ZuoWenCollections {
     public static final ArticleCollection PSLE = bundle("psle",
             "PSLE 作文系列", "Model compositions for the PSLE Chinese paper.",
             a("xiao-mao-de-xin-jia", "小猫的新家"),
-            a("jing-xin-she-ji-de-pian-ju", "精心设计的骗局"));
+            a("jing-xin-she-ji-de-pian-ju", "精心设计的骗局"),
+            a("xiao-shi-de-yi-kuai-qian", "消失的一块钱"));
 
     public static List<ArticleCollection> all() {
         return List.of(PSLE);
