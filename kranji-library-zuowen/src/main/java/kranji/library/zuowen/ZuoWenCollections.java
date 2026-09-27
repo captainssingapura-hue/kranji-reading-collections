@@ -58,7 +58,13 @@ public final class ZuoWenCollections {
             "PSLE 作文系列", "Model compositions for the PSLE Chinese paper.",
             a("xiao-mao-de-xin-jia", "小猫的新家"),
             a("jing-xin-she-ji-de-pian-ju", "精心设计的骗局"),
-            a("xiao-shi-de-yi-kuai-qian", "消失的一块钱"));
+            a("xiao-shi-de-yi-kuai-qian", "消失的一块钱"),
+            a("xiao-shi-de-yi-yuan-qian", "消失的一元钱"),
+            a("cong-ming-fan-bei-cong-ming-wu", "聪明反被聪明误"),
+            a("ni-hui-zuo-shen-me-ne", "你会做什么呢？"),
+            a("xi-shou", "洗手"),
+            a("shu-xue-e2k-qian-de-wu-can", "数学E2K课前的午餐"),
+            a("mei-you-shang-xue-de-yi-tian", "没有上学的一天"));
 
     public static List<ArticleCollection> all() {
         return List.of(PSLE);
